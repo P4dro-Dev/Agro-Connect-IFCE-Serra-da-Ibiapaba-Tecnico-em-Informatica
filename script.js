@@ -1,5 +1,4 @@
-// --- MÓDULO 1: ALGORITMO DE COTAÇÕES ---
-// Dados simulados (normalmente viriam de um Banco de Dados)
+
 const produtosCotacao = [
     { nome: "Banana Prata", precoAtual: 25.00, precoAnt: 22.00, unidade: "Milheiro" },
     { nome: "Tomate", precoAtual: 80.00, precoAnt: 90.00, unidade: "Cx 20kg" },
@@ -35,7 +34,6 @@ function carregarCotacoes() {
     });
 }
 
-// --- MÓDULO 2: ALGORITMO DE CLASSIFICADOS ---
 const anunciosDb = [
     { titulo: "Mudas de Café", tipo: "VENDA", preco: "R$ 5,00", local: "Ubajara" },
     { titulo: "Frete para Fortaleza", tipo: "SERVIÇO", preco: "A combinar", local: "Tianguá" },
@@ -73,8 +71,6 @@ function filtrarAnuncios() {
     carregarAnuncios(termo);
 }
 
-// --- INICIALIZAÇÃO ---
-// Quando a página carregar, roda as funções
 window.onload = function() {
     carregarCotacoes();
     carregarAnuncios();

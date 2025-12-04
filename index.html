@@ -6,12 +6,12 @@
     <title>AgroConecta Ibiapaba - Portal Integrado</title>
     
     <style>
-        /* Reset básico */
+       
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
 
         body { background-color: #f0f7f4; color: #333; padding-bottom: 50px; }
 
-        /* Cabeçalho */
+        
         header {
             background-color: #2e7d32; /* Verde IFCE */
             color: white;
@@ -36,7 +36,7 @@
         }
         nav a:hover { color: #a5d6a7; text-decoration: underline; }
 
-        /* Layout Principal */
+        
         .container {
             max-width: 1200px;
             margin: 20px auto;
@@ -49,13 +49,12 @@
             gap: 20px;
         }
 
-        /* Colunas */
+        
         .secao-esquerda { flex: 2; min-width: 300px; }
         .secao-direita { flex: 1; min-width: 280px; }
 
         h2 { color: #1b5e20; border-bottom: 2px solid #a5d6a7; padding-bottom: 5px; margin-bottom: 15px; }
 
-        /* --- ESTILO DO BLOG --- */
         .card-blog {
             background: white;
             padding: 20px;
@@ -74,7 +73,7 @@
             margin-top: 10px;
         }
 
-        /* --- NOVA SEÇÃO: SERVIÇOS TÉCNICOS --- */
+        
         .area-servicos {
             background: white;
             padding: 20px;
@@ -99,7 +98,7 @@
         .icone-servico { font-size: 2rem; margin-bottom: 10px; display: block; }
         .titulo-servico { font-weight: bold; color: #1b5e20; font-size: 0.95rem; }
 
-        /* --- ESTILO DA TABELA DE PREÇOS --- */
+        
         .card-cotacao {
             background: white;
             padding: 20px;
@@ -113,7 +112,6 @@
         .preco-desce { color: #388e3c; font-weight: bold; }
         .preco-igual { color: #757575; }
 
-        /* --- ESTILO DOS CLASSIFICADOS --- */
         .area-classificados {
             background-color: #e8f5e9;
             padding: 30px 20px;
@@ -265,7 +263,7 @@
     </footer>
 
     <script>
-        // DADOS REAIS OU SIMULADOS
+        
         const dadosPrecos = [
             { produto: "Banana Prata", preco: 25.00, anterior: 22.00 },
             { produto: "Tomate (Cx)", preco: 80.00, anterior: 95.00 },
@@ -279,7 +277,6 @@
             { titulo: "Esterco Orgânico", tipo: "VENDA", preco: "R$ 10,00/saco", local: "S. Benedito" }
         ];
 
-        // FUNÇÕES
         function carregarCotacoes() {
             const tabela = document.getElementById('corpo-tabela');
             dadosPrecos.forEach(item => {
