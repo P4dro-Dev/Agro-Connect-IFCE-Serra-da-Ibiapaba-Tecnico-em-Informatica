@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroConecta Ibiapaba - Portal Integrado</title>
+    
+    <style>
+        /* Reset básico */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+
+        body { background-color: #f0f7f4; color: #333; padding-bottom: 50px; }
+
+        /* Cabeçalho */
+        header {
+            background-color: #2e7d32; /* Verde IFCE */
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            margin-left: 20px; 
+            font-weight: 500; 
+            transition: 0.3s;
+        }
+        nav a:hover { color: #a5d6a7; text-decoration: underline; }
+
+        /* Layout Principal */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .conteudo-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Colunas */
+        .secao-esquerda { flex: 2; min-width: 300px; }
+        .secao-direita { flex: 1; min-width: 280px; }
+
+        h2 { color: #1b5e20; border-bottom: 2px solid #a5d6a7; padding-bottom: 5px; margin-bottom: 15px; }
+
+        /* --- ESTILO DO BLOG --- */
+        .card-blog {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 5px solid #2e7d32;
+        }
+        .btn-ler {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* --- NOVA SEÇÃO: SERVIÇOS TÉCNICOS --- */
+        .area-servicos {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .grid-servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .card-servico {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #c8e6c9;
+            transition: transform 0.2s;
+        }
+        .card-servico:hover { transform: translateY(-5px); border-color: #2e7d32; }
+        .icone-servico { font-size: 2rem; margin-bottom: 10px; display: block; }
+        .titulo-servico { font-weight: bold; color: #1b5e20; font-size: 0.95rem; }
+
+        /* --- ESTILO DA TABELA DE PREÇOS --- */
+        .card-cotacao {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        table { width: 100%; border-collapse: collapse; }
+        th { background-color: #4caf50; color: white; text-align: left; padding: 10px; }
+        td { padding: 10px; border-bottom: 1px solid #eee; }
+        .preco-sobe { color: #d32f2f; font-weight: bold; }
+        .preco-desce { color: #388e3c; font-weight: bold; }
+        .preco-igual { color: #757575; }
+
+        /* --- ESTILO DOS CLASSIFICADOS --- */
+        .area-classificados {
+            background-color: #e8f5e9;
+            padding: 30px 20px;
+            margin-top: 30px;
+        }
+        .grid-anuncios {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .card-anuncio {
+            background: white;
+            width: 250px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        .tag-venda { background-color: #ef6c00; }
+        .tag-compra { background-color: #1976d2; }
+        
+        .card-anuncio h3 { font-size: 1.1rem; margin-top: 15px; color: #333; }
+        .preco-anuncio { font-size: 1.2rem; color: #2e7d32; font-weight: bold; margin: 5px 0; }
+        .local-anuncio { font-size: 0.9rem; color: #666; margin-bottom: 10px; }
+
+        .btn-contato {
+            width: 100%;
+            padding: 8px;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer { background-color: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🌱 AgroConecta</div>
+        <nav>
+            <a href="#servicos">Serviços</a>
+            <a href="#cotacoes">Cotações</a>
+            <a href="#classificados">Classificados</a>
+            <a href="#blog">Dicas</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <section id="servicos" class="area-servicos">
+            <h2 style="text-align: center;">🛠️ Soluções e Serviços Técnicos</h2>
+            <p style="text-align: center; margin-bottom: 20px; color: #666;">Assistência especializada para o produtor da Ibiapaba</p>
+            
+            <div class="grid-servicos">
+                <div class="card-servico">
+                    <span class="icone-servico">🚜</span>
+                    <div class="titulo-servico">Projetos Agrícolas</div>
+                    <small>Planejamento completo</small>
+                </div>
+                
+                <div class="card-servico">
+                    <span class="icone-servico">💧</span>
+                    <div class="titulo-servico">Projetos de Irrigação</div>
+                    <small>Eficiência hídrica</small>
+                </div>
+
+                <div class="card-servico">
+                    <span class="icone-servico">🐞</span>
+                    <div class="titulo-servico">Controle de Pragas</div>
+                    <small>Manejo integrado e doenças</small>
+                </div>
+
+                <div class="card-servico">
+                    <span class="icone-servico">🧪</span>
+                    <div class="titulo-servico">Correção do Solo</div>
+                    <small>Análise e calagem</small>
+                </div>
+
+                <div class="card-servico">
+                    <span class="icone-servico">🏦</span>
+                    <div class="titulo-servico">Financiamento</div>
+                    <small>Projetos Banco do Nordeste (BNB/BNDES)</small>
+                </div>
+
+                <div class="card-servico">
+                    <span class="icone-servico">🛰️</span>
+                    <div class="titulo-servico">Georreferenciamento</div>
+                    <small>Mapeamento de propriedade</small>
+                </div>
+            </div>
+        </section>
+
+        <div class="conteudo-flex">
+            
+            <section class="secao-esquerda" id="blog">
+                <h2>📝 Notícias e Dicas Técnicas</h2>
+                <article class="card-blog">
+                    <h3>Como melhorar a produtividade do Maracujá</h3>
+                    <p>Técnicas de polinização manual podem aumentar significativamente a produção na Serra da Ibiapaba.</p>
+                    <button class="btn-ler">Ler Mais</button>
+                </article>
+            </section>
+
+            <aside class="secao-direita" id="cotacoes">
+                <div class="card-cotacao">
+                    <h2>💰 Cotação Semanal</h2>
+                    <table id="tabela-precos">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>R$ Médio</th>
+                                <th>Sit.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpo-tabela">
+                            </tbody>
+                    </table>
+                </div>
+            </aside>
+        </div>
+
+    </div>
+
+    <section class="area-classificados" id="classificados">
+        <div class="container">
+            <h2 style="text-align: center; border: none;">🤝 Balcão de Negócios</h2>
+            <div class="grid-anuncios" id="lista-anuncios">
+                </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Projeto de Extensão IFCE 2025.2 - AgroConecta Ibiapaba</p>
+    </footer>
+
+    <script>
+        // DADOS REAIS OU SIMULADOS
+        const dadosPrecos = [
+            { produto: "Banana Prata", preco: 25.00, anterior: 22.00 },
+            { produto: "Tomate (Cx)", preco: 80.00, anterior: 95.00 },
+            { produto: "Abacate (Kg)", preco: 5.50, anterior: 5.50 },
+            { produto: "Maracujá", preco: 7.00, anterior: 6.50 }
+        ];
+
+        const dadosAnuncios = [
+            { titulo: "Mudas de Café", tipo: "VENDA", preco: "R$ 5,00/un", local: "Ubajara" },
+            { titulo: "Procuro Frete", tipo: "COMPRA", preco: "A combinar", local: "Tianguá" },
+            { titulo: "Esterco Orgânico", tipo: "VENDA", preco: "R$ 10,00/saco", local: "S. Benedito" }
+        ];
+
+        // FUNÇÕES
+        function carregarCotacoes() {
+            const tabela = document.getElementById('corpo-tabela');
+            dadosPrecos.forEach(item => {
+                let htmlSituacao = item.preco > item.anterior ? "<span class='preco-sobe'>⬆</span>" : 
+                                   item.preco < item.anterior ? "<span class='preco-desce'>⬇</span>" : 
+                                   "<span class='preco-igual'>➖</span>";
+                tabela.innerHTML += `<tr><td>${item.produto}</td><td>R$ ${item.preco.toFixed(2)}</td><td>${htmlSituacao}</td></tr>`;
+            });
+        }
+
+        function carregarClassificados() {
+            const lista = document.getElementById('lista-anuncios');
+            dadosAnuncios.forEach(item => {
+                let tag = item.tipo === "VENDA" ? "tag-venda" : "tag-compra";
+                lista.innerHTML += `
+                    <div class="card-anuncio">
+                        <span class="tag ${tag}">${item.tipo}</span>
+                        <h3>${item.titulo}</h3>
+                        <p class="preco-anuncio">${item.preco}</p>
+                        <p class="local-anuncio">📍 ${item.local}</p>
+                        <button class="btn-contato" onclick="alert('Contato...')">📞 Contatar</button>
+                    </div>`;
+            });
+        }
+
+        window.onload = function() {
+            carregarCotacoes();
+            carregarClassificados();
+        };
+    </script>
+</body>
+</html>
