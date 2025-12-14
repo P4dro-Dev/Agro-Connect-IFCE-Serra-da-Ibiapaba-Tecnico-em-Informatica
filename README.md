@@ -1,6 +1,6 @@
 ## 🌱| AgroConecta Ibiapaba
 
-## 📖| Sobre o Projeto
+## 📖| Sobre o Projeto 
 
 O AgroConecta Ibiapaba é uma plataforma digital de extensão tecnológica desenvolvida para integrar produtores rurais, prestadores de serviços e comerciantes da região da Serra da Ibiapaba. O objetivo principal é facilitar o acesso à informação técnica, monitoramento de mercado e oportunidades de negócios locais. Este sistema é fruto de uma iniciativa interdisciplinar do Instituto Federal do Ceará (IFCE), unindo o conhecimento técnico do curso de Informática com as demandas reais do setor agrário, levantadas pelo curso de Agricultura. O sistema atua em três frentes principais: Informação Técnica (serviços e dicas), Inteligência de Mercado (cotações de preços) e Comércio Local (balcão de negócios).
 
